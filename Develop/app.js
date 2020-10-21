@@ -45,7 +45,7 @@ function mainQuestions() {
         }, 
        
     ]).then(function(mainData){
-         console.log('answers to questionsss',mainData);
+         console.log('answers to questionsss???',mainData);
 
          if (mainData.Role === "Intern"){
              console.log('Time to make an intern');
@@ -79,7 +79,7 @@ function askAnother() {
         {
             name: 'addAnother',
             type: 'confirm',
-            message:'WOuld you like to add another??'
+            message:'Would you like to add another??'
         },
     ]).then(function(anotherData){
         console.log("heres our anotherData Stuff",anotherData);
@@ -113,8 +113,7 @@ function askInternQ(firstQnA) {
         // and push it into the team array
 }
 
-function askMangerQ(firstQnA) {
-    // final inquiere prompt for last question
+function askManagerQ(firstQnA) {
     inquirer.prompt([
         {
             name: 'Office',
@@ -125,8 +124,8 @@ function askMangerQ(firstQnA) {
         console.log("heres our Manager Stuff",managerdata);
         console.log('heres our baseline question stuff', firstQnA)
 
-        var intern = new Intern(firstQnA.Name, firstQnA.id, firstQnA.email, managerdata.Office)
-        team.push(intern)
+        var manager = new Manager(firstQnA.Name, firstQnA.id, firstQnA.email, managerdata.Office)
+        team.push(Manager)
         askAnother()
     })
     // final inquiere prompt for last question
@@ -147,12 +146,12 @@ function askEngineerQ(firstQnA) {
         console.log("heres our Manager Stuff",engineerdata);
         console.log('heres our baseline question stuff', firstQnA)
 
-        var intern = new Intern(firstQnA.Name, firstQnA.id, firstQnA.email, engineerdata.Github)
-        team.push(intern)
+        var engineer = new Engineer(firstQnA.Name, firstQnA.id, firstQnA.email, engineerdata.Github)
+        team.push(Engineer)
         askAnother()
     })
     // final inquiere prompt for last question
-        // in .then here - take all the answers and make a new manager class with it
+        // in .then here - take all the answers and make a new Engineerclass with it
         // and push it into the team array
 }
 
