@@ -12,6 +12,15 @@ const render = require("./lib/htmlRenderer");
 
 var team = []
 
+fs.writeFile(outputPath,render(team),function(err){
+    if (err) throw err;
+});
+
+/* fs.writeFile('mynewfile3.txt', 'Hello content!', function (err) {
+    if (err) throw err;
+    console.log('Saved!');
+  }); */
+  
 
 function mainQuestions() {
 
