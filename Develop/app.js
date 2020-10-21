@@ -108,7 +108,7 @@ function askInternQ(firstQnA) {
         team.push(intern)
         askAnother()
     })
-    // final inquiere prompt for last question
+    // final inquire prompt for last question
         // in .then here - take all the answers and make a new Intern class with it
         // and push it into the team array
 }
