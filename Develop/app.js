@@ -52,10 +52,10 @@ function mainQuestions() {
              askInternQ(mainData)
          } else if (mainData.Role === "Manager"){
             console.log('Time to make an Manager');
-            askMangerQ()
+            askMangerQ(mainData)
         } else if (mainData.Role === "Engineer"){
             console.log('Time to make an Engineer');
-            askEngineerQ()
+            askEngineerQ(mainData)
         }
 
 
@@ -119,7 +119,7 @@ function askMangerQ(firstQnA) {
         {
             name: 'School',
             type: 'input',
-            message:'What School Did you go to?'
+            message:'What is your office number?'
         },
     ]).then(function(managerdata){
         console.log("heres our Manager Stuff",managerdata);
