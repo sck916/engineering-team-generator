@@ -52,7 +52,7 @@ function mainQuestions() {
              askInternQ(mainData)
          } else if (mainData.Role === "Manager"){
             console.log('Time to make an Manager');
-            askMangerQ(mainData)
+            askManagerQ(mainData)
         } else if (mainData.Role === "Engineer"){
             console.log('Time to make an Engineer');
             askEngineerQ(mainData)
@@ -125,11 +125,11 @@ function askManagerQ(firstQnA) {
         console.log('heres our baseline question stuff', firstQnA)
 
         var manager = new Manager(firstQnA.Name, firstQnA.id, firstQnA.email, managerdata.Office)
-        team.push(Manager)
+        team.push(manager)
         askAnother()
     })
     // final inquiere prompt for last question
-        // in .then here - take all the answers and make a new manager class with it
+        // in .then here - take all the answers and make a new Manager class with it
         // and push it into the team array
 }
 
@@ -147,11 +147,11 @@ function askEngineerQ(firstQnA) {
         console.log('heres our baseline question stuff', firstQnA)
 
         var engineer = new Engineer(firstQnA.Name, firstQnA.id, firstQnA.email, engineerdata.Github)
-        team.push(Engineer)
+        team.push(engineer)
         askAnother()
     })
     // final inquiere prompt for last question
-        // in .then here - take all the answers and make a new Engineerclass with it
+        // in .then here - take all the answers and make a new Engineer class with it
         // and push it into the team array
 }
 
