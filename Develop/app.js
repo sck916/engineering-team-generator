@@ -117,7 +117,7 @@ function askMangerQ(firstQnA) {
     // final inquiere prompt for last question
     inquirer.prompt([
         {
-            name: 'School',
+            name: 'Office',
             type: 'input',
             message:'What is your office number?'
         },
@@ -125,7 +125,7 @@ function askMangerQ(firstQnA) {
         console.log("heres our Manager Stuff",managerdata);
         console.log('heres our baseline question stuff', firstQnA)
 
-        var intern = new Intern(firstQnA.Name, firstQnA.id, firstQnA.email, managerdata.School)
+        var intern = new Intern(firstQnA.Name, firstQnA.id, firstQnA.email, managerdata.Office)
         team.push(intern)
         askAnother()
     })
@@ -135,19 +135,19 @@ function askMangerQ(firstQnA) {
 }
 
 
-function askEngineerQ() {
+function askEngineerQ(firstQnA) {
     // final inquiere prompt for last question
     inquirer.prompt([
         {
-            name: 'School',
+            name: 'Github',
             type: 'input',
-            message:'What School Did you go to?'
+            message:'What is your github username?'
         },
     ]).then(function(engineerdata){
         console.log("heres our Manager Stuff",engineerdata);
         console.log('heres our baseline question stuff', firstQnA)
 
-        var intern = new Intern(firstQnA.Name, firstQnA.id, firstQnA.email, engineerdata.School)
+        var intern = new Intern(firstQnA.Name, firstQnA.id, firstQnA.email, engineerdata.Github)
         team.push(intern)
         askAnother()
     })
