@@ -10,6 +10,154 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
+var team = []
+
+
+function mainQuestions() {
+
+    inquirer.prompt([
+        {
+            name: 'Name',
+            type: 'input',
+            message:'What is your name?'
+        },
+        {
+            name: 'email',
+            type: 'input',
+            message:'What is your email address?'
+        },
+        {
+            name: 'Id',
+            type: 'input',
+            message:'Please enter your id?'
+        },
+        
+         {
+            
+            name: 'Role',
+            type: 'list',
+            message:'What is your role?',
+            choices: [
+                "Intern",
+                "Engineer",
+                "Manager"
+            ]
+        }, 
+       
+    ]).then(function(mainData){
+         console.log('answers to questionsss',mainData);
+
+         if (mainData.Role === "Intern"){
+             console.log('Time to make an intern');
+             askInternQ(mainData)
+         } else if (mainData.Role === "Manager"){
+            console.log('Time to make an Manager');
+            askMangerQ()
+        } else if (mainData.Role === "Engineer"){
+            console.log('Time to make an Engineer');
+            askEngineerQ()
+        }
+
+
+
+
+        
+    })
+    // function to ask the main questions with inquiere!!
+        // name
+        //id
+        //email
+        // wat role ?? type: 'list' nice drop
+
+    // in the .then fire off final question function depending on what role they chose if else vibes!
+}
+mainQuestions()
+
+
+function askAnother() {
+    inquirer.prompt([
+        {
+            name: 'addAnother',
+            type: 'confirm',
+            message:'WOuld you like to add another??'
+        },
+    ]).then(function(anotherData){
+        console.log("heres our anotherData Stuff",anotherData);
+        if(anotherData.addAnother === true) {
+            console.log('do another round!! add anopther emp!!')
+            mainQuestions()
+        } else {
+            console.log('time to stop!!!')
+        }
+       
+    })
+}
+
+function askInternQ(firstQnA) {
+    inquirer.prompt([
+        {
+            name: 'School',
+            type: 'input',
+            message:'What School Did you go to?'
+        },
+    ]).then(function(interndata){
+        console.log("heres our intern Stuff",interndata);
+        console.log('heres our baseline question stuff', firstQnA)
+
+        var intern = new Intern(firstQnA.Name, firstQnA.id, firstQnA.email, interndata.School)
+        team.push(intern)
+        askAnother()
+    })
+    // final inquiere prompt for last question
+        // in .then here - take all the answers and make a new Intern class with it
+        // and push it into the team array
+}
+
+function askMangerQ(firstQnA) {
+    // final inquiere prompt for last question
+    inquirer.prompt([
+        {
+            name: 'School',
+            type: 'input',
+            message:'What School Did you go to?'
+        },
+    ]).then(function(managerdata){
+        console.log("heres our Manager Stuff",managerdata);
+        console.log('heres our baseline question stuff', firstQnA)
+
+        var intern = new Intern(firstQnA.Name, firstQnA.id, firstQnA.email, managerdata.School)
+        team.push(intern)
+        askAnother()
+    })
+    // final inquiere prompt for last question
+        // in .then here - take all the answers and make a new manager class with it
+        // and push it into the team array
+}
+
+
+function askEngineerQ() {
+    // final inquiere prompt for last question
+    inquirer.prompt([
+        {
+            name: 'School',
+            type: 'input',
+            message:'What School Did you go to?'
+        },
+    ]).then(function(engineerdata){
+        console.log("heres our Manager Stuff",engineerdata);
+        console.log('heres our baseline question stuff', firstQnA)
+
+        var intern = new Intern(firstQnA.Name, firstQnA.id, firstQnA.email, engineerdata.School)
+        team.push(intern)
+        askAnother()
+    })
+    // final inquiere prompt for last question
+        // in .then here - take all the answers and make a new manager class with it
+        // and push it into the team array
+}
+
+
+
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
