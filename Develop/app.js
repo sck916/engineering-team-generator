@@ -130,4 +130,8 @@ function askEngineerQ(firstQnA) {
         team.push(engineer)
         askAnother()
     })
+    fs.writeFile(outputPath,render(team),function(err){
+        if (err) throw err;
+    });
+    
 }
