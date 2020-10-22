@@ -12,7 +12,7 @@ const render = require("./lib/htmlRenderer");
 
 var team = []
 
-
+// function is run after the initial inquirer to decide if additional questions need to be asked through the inquirer based on the employees role
 function mainQuestions() {
 
     inquirer.prompt([
@@ -84,7 +84,7 @@ function askInternQ(firstQnA) {
         {
             name: 'School',
             type: 'input',
-            message:'What School Did you go to?'
+            message:'What school do you attend?'
         },
     ]).then(function(interndata){
         console.log("heres our intern Stuff",interndata);
@@ -133,5 +133,5 @@ function askEngineerQ(firstQnA) {
     fs.writeFile(outputPath,render(team),function(err){
         if (err) throw err;
     });
-    
+     
 }
